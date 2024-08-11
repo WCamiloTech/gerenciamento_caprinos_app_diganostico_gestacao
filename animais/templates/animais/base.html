@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Diagnóstico{% endblock %}</title>
+    <!-- Link para o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link para o CSS adicional -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Gestão de Animais</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listar_diagnosticos' %}">Listar Diagnósticos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'adicionar_diagnostico' %}">Adicionar Diagnóstico</a>
+                    </li>
+                </ul>
+                <!-- Adicionando ml-auto para empurrar o botão para a direita -->
+                <div class="ml-auto">
+                    <a class="btn btn-secondary" href="{% url 'admin:index' %}">Admin</a>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main" class="py-4">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+
+    <!-- Script do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

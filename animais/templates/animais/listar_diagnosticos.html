@@ -1,0 +1,34 @@
+{% extends 'animais/base.html' %}
+
+{% block title %}Listar Diagnósticos{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Diagnósticos de Gestação</h1>
+<a class="btn btn-primary mb-3" href="{% url 'adicionar_diagnostico' %}">Adicionar Novo Diagnóstico</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Brinco</th>
+            <th>Data Cobertura</th>
+            <th>Data Diagnóstico</th>
+            <th>Reprodutor</th>
+            <th>Último Parto</th>
+            <th>Dias de Gestação</th>
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for diagnostico in diagnosticos %}
+        <tr>
+            <td>{{ diagnostico.brinco }}</td>
+            <td>{{ diagnostico.data_cobertura }}</td>
+            <td>{{ diagnostico.data_diagnostico }}</td>
+            <td>{{ diagnostico.reprodutor }}</td>
+            <td>{{ diagnostico.ultimo_parto }}</td>
+            <td>{{ diagnostico.dias_gestacao }}</td>
+            <td>{{ diagnostico.resultado }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
