@@ -15,6 +15,7 @@
             <th>Último Parto</th>
             <th>Dias de Gestação</th>
             <th>Resultado</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,10 @@
             <td>{{ diagnostico.ultimo_parto }}</td>
             <td>{{ diagnostico.dias_gestacao }}</td>
             <td>{{ diagnostico.resultado }}</td>
+            <td>
+                <a href="{% url 'editar_diagnostico' diagnostico.pk %}" class="btn btn-primary">Editar</a>
+            </td>
+            
         </tr>
         {% endfor %}
     </tbody>
