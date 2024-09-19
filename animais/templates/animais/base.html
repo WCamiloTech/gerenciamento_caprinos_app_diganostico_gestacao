@@ -24,8 +24,13 @@
                         <a class="nav-link" href="{% url 'adicionar_diagnostico' %}">Adicionar Diagnóstico</a>
                     </li>
                 </ul>
-                <!-- Adicionando ml-auto para empurrar o botão para a direita -->
-                <div class="ml-auto">
+                <!-- Adicionando ml-auto para empurrar os itens para a direita -->
+                <div class="ml-auto d-flex align-items-center">
+                    <!-- Formulário de busca -->
+                    <form method="GET" action="{% url 'listar_diagnosticos' %}" class="form-inline my-2 my-lg-0 mr-3">
+                        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Buscar diagnóstico" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
                     <a class="btn btn-secondary" href="{% url 'admin:index' %}">Admin</a>
                 </div>
             </div>

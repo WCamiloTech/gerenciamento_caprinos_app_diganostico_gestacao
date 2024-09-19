@@ -5,6 +5,10 @@ body {
 
 .btn-secondary {
     margin-left: auto;
-    margin-right: 50px;
+    margin-right: 60px;
     
+}
+
+.btn-spacing {
+    margin-right: 10px; /* Ajuste o valor conforme necessário */
 }

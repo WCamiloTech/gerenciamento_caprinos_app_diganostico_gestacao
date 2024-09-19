@@ -4,7 +4,11 @@
 
 {% block content %}
 <h1 class="mb-4">Diagnósticos de Gestação</h1>
+
+<!-- Adicionando botão para adicionar novo diagnóstico -->
 <a class="btn btn-primary mb-3" href="{% url 'adicionar_diagnostico' %}">Adicionar Novo Diagnóstico</a>
+
+<!-- Tabela para exibir os diagnósticos de gestação -->
 <table class="table table-striped">
     <thead>
         <tr>
@@ -29,11 +33,27 @@
             <td>{{ diagnostico.dias_gestacao }}</td>
             <td>{{ diagnostico.resultado }}</td>
             <td>
-                <a href="{% url 'editar_diagnostico' diagnostico.pk %}" class="btn btn-primary">Editar</a>
+                <!-- Container para os botões de ações -->
+                <div class="btn-group" role="group" aria-label="Ações">
+                    <!-- Botão para editar o diagnóstico -->
+                    <a href="{% url 'editar_diagnostico' diagnostico.pk %}" class="btn btn-primary btn-rounded btn-sm btn-action">Editar</a>
+                    
+                    <!-- Formulário para excluir o diagnóstico -->
+                    <form method="POST" action="{% url 'excluir_diagnostico' diagnostico.pk %}" style="display:inline;" onsubmit="return confirmDelete()">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm btn-action">Excluir</button>
+                    </form>
+                </div>
             </td>
-            
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<script>
+function confirmDelete() {
+    return confirm('Você tem certeza de que deseja excluir este diagnóstico?');
+}
+</script>
+
 {% endblock %}
