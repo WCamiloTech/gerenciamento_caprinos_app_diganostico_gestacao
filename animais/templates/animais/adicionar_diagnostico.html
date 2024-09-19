@@ -4,11 +4,13 @@
 
 {% block content %}
 <h1 class="mb-4">Adicionar Novo Diagnóstico</h1>
-<form method="post">
+<!-- Formulário para adicionar diagnóstico -->
+<form method="POST">
     {% csrf_token %}
-    <div class="form-group">
-        {{ form.as_p }}
-    </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <!-- Exibe o formulário usando o método 'as_p' -->
+    {{ form.as_p }}
+    
+    <!-- Botão para submeter o formulário -->
+    <button type="submit" class="btn btn-primary">Adicionar Diagnóstico</button>
 </form>
 {% endblock %}
