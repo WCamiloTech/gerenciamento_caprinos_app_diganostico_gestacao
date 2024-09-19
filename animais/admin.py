@@ -8,3 +8,4 @@ from .models import DiagnosticoGestacao
 class DiagnosticoGestacaoAdmin(admin.ModelAdmin):
     list_display = ('brinco', 'data_cobertura', 'data_diagnostico', 'reprodutor', 'ultimo_parto', 'dias_gestacao', 'resultado')
     search_fields = ('brinco', 'reprodutor')
+    list_filter = ('resultado', 'data_diagnostico')
